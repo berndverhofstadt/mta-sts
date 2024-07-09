@@ -1,0 +1,23 @@
+name: Deploy MTA-STS Policy to Azure Static Web App
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.well-known/**'
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to Azure Static Web App
+      uses: Azure/static-web-apps-deploy@v1
+      with:
+        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }} # Provided by Actions, do not need to create your own secret
+        action: "upload"
+        app_location: "/" # This should be the root of your static app
+        api_location: "" # No API for MTA-STS policy, so this is left blank
+        output_location: "./.well-known" # The location of the folder to deploy
