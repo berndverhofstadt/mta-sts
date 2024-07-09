@@ -21,3 +21,4 @@ jobs:
         app_location: "/" # This should be the root of your static app
         api_location: "" # No API for MTA-STS policy, so this is left blank
         output_location: "./.well-known" # The location of the folder to deploy
+        skip_app_build: true # Skip the build process for static content
