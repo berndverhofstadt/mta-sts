@@ -3,3 +3,4 @@ mode: testing
 max_age: 604800
 mx: *.mail.protection.outlook.com
 mx: flippersleuven-be.q-v1.mx.microsoft
+mx: flippersleuven-be02b.b-v1.mx.microsoft
